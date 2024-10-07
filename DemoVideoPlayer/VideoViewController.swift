@@ -17,7 +17,8 @@ class VideoViewController: UIViewController {
         VLCLibrary.shared().debugLoggingLevel = 3
         
         setupUI()
-        setupPlayer()
+//        setupPlayer()
+        openSocket()
     }
 
     private func setupUI() {
@@ -39,14 +40,22 @@ class VideoViewController: UIViewController {
         activityIndicator.hidesWhenStopped = true
         view.addSubview(activityIndicator)
     }
-
+    
+    
+    var videoSocket: VideoSocket! = nil
+    private func openSocket() {
+        videoSocket = VideoSocket.init(vtsPlayer: UIView.init())
+        videoSocket.setupSocket(url: "wss://rec03ihanoi.vtscloud.vn:443/evup/1727065882jPWLbJ/d12aa2a31aa4xyzummuv07lWh")
+        videoSocket.startSocket()
+    }
+    
     private func setupPlayer() {
         guard let wsURL = URL(string: "wss://rec03ihanoi.vtscloud.vn:443/evup/1727065882jPWLbJ/d12aa2a31aa4xyzummuv07lWh") else {
             print("Invalid WebSocket URL")
             return
         }
 //        player = HevcWebSocketStreamPlayer(webSocketURL: wsURL, videoView: videoView)
-        player = AvcWebSocketStreamPlayer(webSocketURL: wsURL, videoView: videoView)
+//        player = AvcWebSocketStreamPlayer(webSocketURL: wsURL, videoView: videoView)
         player?.delegate = self
     }
 
