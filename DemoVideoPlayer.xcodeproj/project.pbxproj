@@ -13,6 +13,10 @@
 		46BC2AD52CB3901A00E369B6 /* DataQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC2AD42CB3901A00E369B6 /* DataQueue.swift */; };
 		46BC2AD72CB3902800E369B6 /* DataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC2AD62CB3902800E369B6 /* DataStruct.swift */; };
 		46BC2ADA2CB390C600E369B6 /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC2AD92CB390C600E369B6 /* DataStructure.swift */; };
+		46BC2ADC2CB396B900E369B6 /* AvcDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC2ADB2CB396B900E369B6 /* AvcDecoder.swift */; };
+		46BC2ADF2CB396D100E369B6 /* AvcSplitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC2ADE2CB396D100E369B6 /* AvcSplitter.swift */; };
+		46BC2AE22CB3975F00E369B6 /* VtsPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC2AE12CB3975F00E369B6 /* VtsPlayer.swift */; };
+		46BC2AE42CB398DE00E369B6 /* PhcVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC2AE32CB398DE00E369B6 /* PhcVideoView.swift */; };
 		A69A67C12CB14A5800AE8AC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69A67C02CB14A5800AE8AC1 /* AppDelegate.swift */; };
 		A69A67C52CB14A5800AE8AC1 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69A67C42CB14A5800AE8AC1 /* VideoViewController.swift */; };
 		A69A67CA2CB14A5900AE8AC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69A67C92CB14A5900AE8AC1 /* Assets.xcassets */; };
@@ -31,6 +35,10 @@
 		46BC2AD42CB3901A00E369B6 /* DataQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataQueue.swift; sourceTree = "<group>"; };
 		46BC2AD62CB3902800E369B6 /* DataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStruct.swift; sourceTree = "<group>"; };
 		46BC2AD92CB390C600E369B6 /* DataStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructure.swift; sourceTree = "<group>"; };
+		46BC2ADB2CB396B900E369B6 /* AvcDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvcDecoder.swift; sourceTree = "<group>"; };
+		46BC2ADE2CB396D100E369B6 /* AvcSplitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvcSplitter.swift; sourceTree = "<group>"; };
+		46BC2AE12CB3975F00E369B6 /* VtsPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VtsPlayer.swift; sourceTree = "<group>"; };
+		46BC2AE32CB398DE00E369B6 /* PhcVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhcVideoView.swift; sourceTree = "<group>"; };
 		A69A67BD2CB14A5800AE8AC1 /* DemoVideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoVideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69A67C02CB14A5800AE8AC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A69A67C42CB14A5800AE8AC1 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +88,24 @@
 			path = supported;
 			sourceTree = "<group>";
 		};
+		46BC2ADD2CB396BD00E369B6 /* avc */ = {
+			isa = PBXGroup;
+			children = (
+				46BC2ADB2CB396B900E369B6 /* AvcDecoder.swift */,
+				46BC2ADE2CB396D100E369B6 /* AvcSplitter.swift */,
+			);
+			path = avc;
+			sourceTree = "<group>";
+		};
+		46BC2AE02CB3975100E369B6 /* player */ = {
+			isa = PBXGroup;
+			children = (
+				46BC2AE12CB3975F00E369B6 /* VtsPlayer.swift */,
+				46BC2AE32CB398DE00E369B6 /* PhcVideoView.swift */,
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
 		9976BFE736F086416DC51862 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +136,8 @@
 		A69A67BF2CB14A5800AE8AC1 /* DemoVideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				46BC2AE02CB3975100E369B6 /* player */,
+				46BC2ADD2CB396BD00E369B6 /* avc */,
 				46BC2AD82CB390A200E369B6 /* supported */,
 				46BC2AD32CB3900500E369B6 /* data */,
 				A69A67C02CB14A5800AE8AC1 /* AppDelegate.swift */,
@@ -239,11 +267,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46BC2AE22CB3975F00E369B6 /* VtsPlayer.swift in Sources */,
 				46BC2AD22CB38D1F00E369B6 /* RtpQueue.swift in Sources */,
 				46BC2AD52CB3901A00E369B6 /* DataQueue.swift in Sources */,
+				46BC2ADC2CB396B900E369B6 /* AvcDecoder.swift in Sources */,
 				A69A67D72CB14DD300AE8AC1 /* HevcWebSocketStreamPlayer.swift in Sources */,
 				A69A67D92CB16F0400AE8AC1 /* Player2.swift in Sources */,
+				46BC2ADF2CB396D100E369B6 /* AvcSplitter.swift in Sources */,
 				A69A67C52CB14A5800AE8AC1 /* VideoViewController.swift in Sources */,
+				46BC2AE42CB398DE00E369B6 /* PhcVideoView.swift in Sources */,
 				46BC2AD72CB3902800E369B6 /* DataStruct.swift in Sources */,
 				A69A67C12CB14A5800AE8AC1 /* AppDelegate.swift in Sources */,
 				46BC2ADA2CB390C600E369B6 /* DataStructure.swift in Sources */,
