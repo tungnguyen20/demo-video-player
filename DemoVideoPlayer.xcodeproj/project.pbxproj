@@ -102,6 +102,7 @@
 			children = (
 				46BC2AE12CB3975F00E369B6 /* VtsPlayer.swift */,
 				46BC2AE32CB398DE00E369B6 /* PhcVideoView.swift */,
+				46BC2ACF2CB3874500E369B6 /* VideoSocket.swift */,
 			);
 			path = player;
 			sourceTree = "<group>";
@@ -148,7 +149,6 @@
 				A69A67D42CB14A9D00AE8AC1 /* AvcWebSocketStreamPlayer.swift */,
 				A69A67D62CB14DD300AE8AC1 /* HevcWebSocketStreamPlayer.swift */,
 				A69A67D82CB16F0400AE8AC1 /* Player2.swift */,
-				46BC2ACF2CB3874500E369B6 /* VideoSocket.swift */,
 			);
 			path = DemoVideoPlayer;
 			sourceTree = "<group>";

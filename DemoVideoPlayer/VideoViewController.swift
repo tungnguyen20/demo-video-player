@@ -6,10 +6,12 @@ class VideoViewController: UIViewController {
 
     private var videoView: UIView!
 //    private var player: HevcWebSocketStreamPlayer?
-    private var player: AvcWebSocketStreamPlayer?
+    private var player: VtsPlayer?
     private var startStopButton: UIButton!
     private var activityIndicator: UIActivityIndicatorView!
 
+    let videoURL = "wss://rec03ihanoi.vtscloud.vn:443/evup/1727065882jPWLbJ/d12aa2a31aa4xyzummuv07lWh"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,8 +19,8 @@ class VideoViewController: UIViewController {
         VLCLibrary.shared().debugLoggingLevel = 3
         
         setupUI()
-//        setupPlayer()
-        openSocket()
+        setupPlayer()
+//        openSocket()
     }
 
     private func setupUI() {
@@ -44,16 +46,18 @@ class VideoViewController: UIViewController {
     
     var videoSocket: VideoSocket! = nil
     private func openSocket() {
-        videoSocket = VideoSocket.init(vtsPlayer: UIView.init())
+        videoSocket = VideoSocket.init(vtsPlayer: player!)
         videoSocket.setupSocket(url: "wss://rec03ihanoi.vtscloud.vn:443/evup/1727065882jPWLbJ/d12aa2a31aa4xyzummuv07lWh")
         videoSocket.startSocket()
     }
     
     private func setupPlayer() {
-        guard let wsURL = URL(string: "wss://rec03ihanoi.vtscloud.vn:443/evup/1727065882jPWLbJ/d12aa2a31aa4xyzummuv07lWh") else {
-            print("Invalid WebSocket URL")
-            return
-        }
+//        guard let wsURL = URL(string: "") else {
+//            print("Invalid WebSocket URL")
+//            return
+//        }
+        player = VtsPlayer.init()
+        player?.setUpPlayer(PhcVideoView(), videoURL)
 //        player = HevcWebSocketStreamPlayer(webSocketURL: wsURL, videoView: videoView)
 //        player = AvcWebSocketStreamPlayer(webSocketURL: wsURL, videoView: videoView)
 //        player?.delegate = self
@@ -68,15 +72,15 @@ class VideoViewController: UIViewController {
     }
 
     private func startPlayback() {
-        activityIndicator.startAnimating()
-        player?.start()
-        startStopButton.setTitle("Stop", for: .normal)
+//        activityIndicator.startAnimating()
+//        player?.start()
+//        startStopButton.setTitle("Stop", for: .normal)
     }
 
     private func stopPlayback() {
-        player?.stop()
-        startStopButton.setTitle("Start", for: .normal)
-        activityIndicator.stopAnimating()
+//        player?.stop()
+//        startStopButton.setTitle("Start", for: .normal)
+//        activityIndicator.stopAnimating()
     }
 }
 //

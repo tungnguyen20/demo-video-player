@@ -51,8 +51,7 @@ class VtsPlayer {
     }
 
     init() {
-        // MINHTH-TODO
-//        self.videoSocket = VideoSocket(self)
+        self.videoSocket = VideoSocket(vtsPlayer: self)
         initHevcPlayer()
         initAvcPlayer()
     }

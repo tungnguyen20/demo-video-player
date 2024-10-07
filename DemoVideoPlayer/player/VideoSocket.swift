@@ -1,21 +1,21 @@
 import Foundation
 import Starscream
 
-public class VideoSocket: NSObject, WebSocketDelegate {
+class VideoSocket: NSObject, WebSocketDelegate {
 
     
-    public static let TAG = "VideoSocket"
-    public static var linkIndex: Int64 = 0
+    static let TAG = "VideoSocket"
+    static var linkIndex: Int64 = 0
     
-    public var httpClient: URLSession
-    public var socket_state: SOCKET_STATE
-    public var vtsPlayer: UIView
-    public var webSocket: WebSocket?
+    var httpClient: URLSession
+    var socket_state: SOCKET_STATE
+    var vtsPlayer: VtsPlayer! = nil
+    var webSocket: WebSocket?
     
-    public var monitorRtpEnqueue: (() -> Void)?
-    public var sourceUrl: String = ""
+    var monitorRtpEnqueue: (() -> Void)?
+    var sourceUrl: String = ""
     
-    public enum SOCKET_STATE {
+    enum SOCKET_STATE {
         case SOCKET_INVALID
         case SOCKET_STARTED
         case SOCKET_RECONNECTING
@@ -23,7 +23,7 @@ public class VideoSocket: NSObject, WebSocketDelegate {
         case SOCKET_STOPPED
     }
     
-    public init(vtsPlayer: UIView) {
+    init(vtsPlayer: VtsPlayer) {
         self.vtsPlayer = vtsPlayer
         let config = URLSessionConfiguration.default
         self.httpClient = URLSession(configuration: config)
@@ -40,18 +40,18 @@ public class VideoSocket: NSObject, WebSocketDelegate {
         }
     }
     
-    public func setupSocket(url: String) {
+    func setupSocket(url: String) {
         self.sourceUrl = url
     }
     
-    public func startSocket() {
+    func startSocket() {
         if socket_state != .SOCKET_STARTED {
             connectSocket()
             socket_state = .SOCKET_STARTED
         }
     }
     
-    public func stopSocket() {
+    func stopSocket() {
         if socket_state != .SOCKET_STOPPED {
             webSocket?.disconnect()
             webSocket = nil
@@ -59,7 +59,7 @@ public class VideoSocket: NSObject, WebSocketDelegate {
         }
     }
     
-    public func reconnectSocket() {
+    func reconnectSocket() {
         if socket_state != .SOCKET_STOPPED {
             webSocket?.disconnect()
             webSocket = nil
@@ -81,7 +81,7 @@ public class VideoSocket: NSObject, WebSocketDelegate {
     
     // MARK: - WebSocketDelegate
     
-    public func didReceive(event: Starscream.WebSocketEvent, client: any Starscream.WebSocketClient) {
+    func didReceive(event: Starscream.WebSocketEvent, client: any Starscream.WebSocketClient) {
         switch event {
         case .connected(_):
             socket_state = .SOCKET_CONNECTED
