@@ -18,8 +18,8 @@ class RtpQueue {
     var rtpQueueHevc: [Int64: DataStruct] = [:]
     
     func enqueue(_ index: Int64, _ dataStruct: DataStruct) -> Bool {
-        lock.lock()
-        defer { lock.unlock() }
+//        lock.lock()
+//        defer { lock.unlock() }
         
         if rtpQueue.count > 100 {
             rtpQueue.removeAll()
@@ -36,8 +36,8 @@ class RtpQueue {
     }
     
     func dequeue() -> (Int64, DataStruct?) {
-        lock.lock()
-        defer { lock.unlock() }
+//        lock.lock()
+//        defer { lock.unlock() }
         
         while rtpQueue.isEmpty {
             condition.wait()

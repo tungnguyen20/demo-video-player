@@ -125,7 +125,9 @@ class VideoSocket: NSObject, WebSocketDelegate {
         do {
             if firstByte == 1 {
                 // MINHTH - TODO
-//                try vtsPlayer.getRtpQueue().enqueue(VideoSocket.linkIndex, DataStruct(data))
+                print("MINHTH - firstByte = 1")
+                let uintData = [UInt8](data)
+                try vtsPlayer.getRtpQueue().enqueue(VideoSocket.linkIndex, DataStruct(data: uintData))
             } else if firstByte == 2 {
                 // MINHTH - TODO
 //                try vtsPlayer.getRtpQueue().enqueueHevc(VideoSocket.linkIndex, DataStruct(data))

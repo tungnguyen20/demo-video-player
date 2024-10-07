@@ -62,32 +62,32 @@ class VtsPlayer {
         startPlayer()
     }
 
-    func sleep20milSec() {
+    func sleep20milSec() async {
         do {
-            try Thread.sleep(forTimeInterval: 0.01)
+            try await Thread.sleep(forTimeInterval: 0.01)
         } catch {
             print(error)
         }
     }
 
-    func startHevcPlayer() {
+    func startHevcPlayer() async {
         if self.videoSocket != nil {
             // MINHTH - TODO
 //            self.hevcSplitter?.startSplitter()
 //            self.hevcDecoder?.start()
         } else {
-            sleep20milSec()
-            startHevcPlayer()
+            await sleep20milSec()
+            await startHevcPlayer()
         }
     }
 
-    func startAvcPlayer() {
+    func startAvcPlayer() async {
         if self.videoSocket != nil {
             self.avcSplitter?.startSplitter()
-            self.avcDecoder?.start()
+//            self.avcDecoder?.start()
         } else {
-            sleep20milSec()
-            startAvcPlayer()
+            await sleep20milSec()
+            await startAvcPlayer()
         }
     }
 
@@ -96,8 +96,10 @@ class VtsPlayer {
             videoSocket.setupSocket(url: self.urlSocket)
             videoSocket.startSocket()
         }
-        startHevcPlayer()
-        startAvcPlayer()
+//        startHevcPlayer()
+        Task {
+            await self.startAvcPlayer()
+        }
         self.videoView?.setupVideoView()
     }
 

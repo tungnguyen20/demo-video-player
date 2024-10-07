@@ -32,10 +32,11 @@ class AvcSplitter: Thread {
         self.isRunning = false
     }
 
-    func run() {
+    override func main() {
         do {
-            if self.isRunning {
-                while !self.player.isStop && self.isRunning {
+//            if self.isRunning {
+//                while !self.player.isStop && self.isRunning {
+            while (true) {
                     if let obj = self.player.rtpQueue.dequeue().1 {
                         self.retry = 0
                         splitRtpPackage(dataStruct: obj as! DataStruct)
@@ -51,7 +52,7 @@ class AvcSplitter: Thread {
                         self.player.rtpQueue.next()
                     }
                 }
-            }
+//            }
         } catch {
             print(error)
         }

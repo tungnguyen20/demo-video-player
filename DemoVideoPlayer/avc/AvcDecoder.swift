@@ -59,6 +59,7 @@ class AvcDecoder {
             // Chuyển đổi phần cấu hình codec từ Java sang Swift là một quá trình phức tạp
             // và cần được thực hiện cẩn thận với AVFoundation
             // Đây chỉ là một phiên bản giả định
+            print("MINHTH \(width), \(height), ")
             if mIsConfigured.get() { return }
             
             do {
