@@ -56,7 +56,7 @@ class VideoViewController: UIViewController {
         }
 //        player = HevcWebSocketStreamPlayer(webSocketURL: wsURL, videoView: videoView)
 //        player = AvcWebSocketStreamPlayer(webSocketURL: wsURL, videoView: videoView)
-        player?.delegate = self
+//        player?.delegate = self
     }
 
     @objc private func startStopTapped() {
@@ -79,43 +79,31 @@ class VideoViewController: UIViewController {
         activityIndicator.stopAnimating()
     }
 }
-
-extension VideoViewController: HevcWebSocketStreamPlayerDelegate, AvcWebSocketStreamPlayerDelegate {
-    func playerDidConnect() {
-        print("WebSocket connected")
-    }
-
-    func playerDidDisconnect() {
-        print("WebSocket disconnected")
-        DispatchQueue.main.async {
-            self.stopPlayback()
-        }
-    }
-
-    func playerDidStartPlaying() {
-        print("Video started playing")
-        DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating()
-        }
-    }
-
-    func playerDidEncounterError(_ error: Error) {
-        print("Player error: \(error.localizedDescription)")
-        DispatchQueue.main.async {
-            self.stopPlayback()
-            // You might want to show an alert to the user here
-        }
-    }
-}
-
-struct DataStruct {
-    var videoData: Data?
-    var timestamp: Int64
-    var isParams: Bool
-    
-    init(_ data: Data?, _ timestamp: Int64, _ isParams: Bool) {
-        self.videoData = data
-        self.timestamp = timestamp
-        self.isParams = isParams
-    }
-}
+//
+//extension VideoViewController: HevcWebSocketStreamPlayerDelegate, AvcWebSocketStreamPlayerDelegate {
+//    func playerDidConnect() {
+//        print("WebSocket connected")
+//    }
+//
+//    func playerDidDisconnect() {
+//        print("WebSocket disconnected")
+//        DispatchQueue.main.async {
+//            self.stopPlayback()
+//        }
+//    }
+//
+//    func playerDidStartPlaying() {
+//        print("Video started playing")
+//        DispatchQueue.main.async {
+//            self.activityIndicator.stopAnimating()
+//        }
+//    }
+//
+//    func playerDidEncounterError(_ error: Error) {
+//        print("Player error: \(error.localizedDescription)")
+//        DispatchQueue.main.async {
+//            self.stopPlayback()
+//            // You might want to show an alert to the user here
+//        }
+//    }
+//}

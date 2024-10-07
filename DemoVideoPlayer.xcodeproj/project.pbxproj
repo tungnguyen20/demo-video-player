@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		46270A090FE6A90976C17DDD /* Pods_DemoVideoPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB4AFC6A31D232BB19EFC8D /* Pods_DemoVideoPlayer.framework */; };
 		46BC2AD02CB3874500E369B6 /* VideoSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC2ACF2CB3874500E369B6 /* VideoSocket.swift */; };
+		46BC2AD22CB38D1F00E369B6 /* RtpQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC2AD12CB38D1F00E369B6 /* RtpQueue.swift */; };
+		46BC2AD52CB3901A00E369B6 /* DataQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC2AD42CB3901A00E369B6 /* DataQueue.swift */; };
+		46BC2AD72CB3902800E369B6 /* DataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC2AD62CB3902800E369B6 /* DataStruct.swift */; };
+		46BC2ADA2CB390C600E369B6 /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC2AD92CB390C600E369B6 /* DataStructure.swift */; };
 		A69A67C12CB14A5800AE8AC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69A67C02CB14A5800AE8AC1 /* AppDelegate.swift */; };
 		A69A67C52CB14A5800AE8AC1 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69A67C42CB14A5800AE8AC1 /* VideoViewController.swift */; };
 		A69A67CA2CB14A5900AE8AC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69A67C92CB14A5900AE8AC1 /* Assets.xcassets */; };
@@ -23,6 +27,10 @@
 		3E77308885F74A9FE089207A /* Pods-DemoVideoPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoVideoPlayer.debug.xcconfig"; path = "Target Support Files/Pods-DemoVideoPlayer/Pods-DemoVideoPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		3EB4AFC6A31D232BB19EFC8D /* Pods_DemoVideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoVideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BC2ACF2CB3874500E369B6 /* VideoSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSocket.swift; sourceTree = "<group>"; };
+		46BC2AD12CB38D1F00E369B6 /* RtpQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RtpQueue.swift; sourceTree = "<group>"; };
+		46BC2AD42CB3901A00E369B6 /* DataQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataQueue.swift; sourceTree = "<group>"; };
+		46BC2AD62CB3902800E369B6 /* DataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStruct.swift; sourceTree = "<group>"; };
+		46BC2AD92CB390C600E369B6 /* DataStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructure.swift; sourceTree = "<group>"; };
 		A69A67BD2CB14A5800AE8AC1 /* DemoVideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoVideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69A67C02CB14A5800AE8AC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A69A67C42CB14A5800AE8AC1 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +60,24 @@
 				3EB4AFC6A31D232BB19EFC8D /* Pods_DemoVideoPlayer.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		46BC2AD32CB3900500E369B6 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				46BC2AD12CB38D1F00E369B6 /* RtpQueue.swift */,
+				46BC2AD42CB3901A00E369B6 /* DataQueue.swift */,
+				46BC2AD62CB3902800E369B6 /* DataStruct.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		46BC2AD82CB390A200E369B6 /* supported */ = {
+			isa = PBXGroup;
+			children = (
+				46BC2AD92CB390C600E369B6 /* DataStructure.swift */,
+			);
+			path = supported;
 			sourceTree = "<group>";
 		};
 		9976BFE736F086416DC51862 /* Pods */ = {
@@ -84,6 +110,8 @@
 		A69A67BF2CB14A5800AE8AC1 /* DemoVideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				46BC2AD82CB390A200E369B6 /* supported */,
+				46BC2AD32CB3900500E369B6 /* data */,
 				A69A67C02CB14A5800AE8AC1 /* AppDelegate.swift */,
 				A69A67C42CB14A5800AE8AC1 /* VideoViewController.swift */,
 				A69A67C92CB14A5900AE8AC1 /* Assets.xcassets */,
@@ -211,10 +239,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46BC2AD22CB38D1F00E369B6 /* RtpQueue.swift in Sources */,
+				46BC2AD52CB3901A00E369B6 /* DataQueue.swift in Sources */,
 				A69A67D72CB14DD300AE8AC1 /* HevcWebSocketStreamPlayer.swift in Sources */,
 				A69A67D92CB16F0400AE8AC1 /* Player2.swift in Sources */,
 				A69A67C52CB14A5800AE8AC1 /* VideoViewController.swift in Sources */,
+				46BC2AD72CB3902800E369B6 /* DataStruct.swift in Sources */,
 				A69A67C12CB14A5800AE8AC1 /* AppDelegate.swift in Sources */,
+				46BC2ADA2CB390C600E369B6 /* DataStructure.swift in Sources */,
 				46BC2AD02CB3874500E369B6 /* VideoSocket.swift in Sources */,
 				A69A67D52CB14A9D00AE8AC1 /* AvcWebSocketStreamPlayer.swift in Sources */,
 			);
