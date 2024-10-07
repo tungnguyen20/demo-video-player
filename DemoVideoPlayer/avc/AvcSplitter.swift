@@ -61,7 +61,7 @@ class AvcSplitter: Thread {
     func splitRtpPackage(dataStruct: DataStruct) {
         let videoData = dataStruct.getVideoData()
         let length = videoData.count
-        
+        print("MINHTH: \(videoData)")
         if videoData[1] != 1 {
             stopSplitter()
         } else if length > 8 {
